@@ -23,7 +23,7 @@ function fill_html_data(path) {
 }
 
 function show_daily_log(response) {
-    array.forEach(element => {
+    response.forEach(element => {
         let article = document.createElement('article');
         let title = document.createElement('h1');
         let date = document.createElement('p');
