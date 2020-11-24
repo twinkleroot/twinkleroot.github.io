@@ -24,8 +24,8 @@ function show_daily_log(response) {
 
     response.forEach(element => {
         let article = document.createElement('article');
-        let title = document.createElement('h3');
-        let date = document.createElement('p');
+        let date = document.createElement('h3');
+        let title = document.createElement('p');
         let weight = document.createElement('p');
         let memo = document.createElement('p');
 
@@ -34,8 +34,8 @@ function show_daily_log(response) {
         weight.textContent = element.weight + 'kg';
         memo.textContent = element.memo;
 
-        article.appendChild(title);
         article.appendChild(date);
+        article.appendChild(title);
         article.appendChild(weight);
         article.appendChild(memo);
 
