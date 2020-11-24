@@ -1,7 +1,4 @@
 (function() {
-    let header = document.querySelector('header');
-    let section = document.querySelector('section');
-
     // 현재 yyyy, mm 가져와서 json 파일을 만들어서 호출하자.
     const path = "2011.json";
     fill_html_data(path);
@@ -23,6 +20,8 @@ function fill_html_data(path) {
 }
 
 function show_daily_log(response) {
+    let section = document.querySelector('section');
+    
     response.forEach(element => {
         let article = document.createElement('article');
         let title = document.createElement('h1');
