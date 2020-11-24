@@ -1,5 +1,4 @@
 (function() {
-    // 현재 yyyy, mm 가져와서 json 파일을 만들어서 호출하자.
     const path = get_json_path();
     fill_html_data(path);
 
@@ -18,6 +17,10 @@ function fill_html_data(path) {
 
 function show_daily_log(response) {
     let section = document.querySelector('section');
+    let header_count_area = document.querySelector('header>h1');
+    let daily_count = document.createElement('span');
+    daily_count.textContent = '식단변경 ' + get_day_diff('2020-11-09', new Date()) + '일차';
+    header_count_area.appendChild(daily_count);
 
     response.forEach(element => {
         let article = document.createElement('article');
