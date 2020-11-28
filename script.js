@@ -74,7 +74,7 @@ function show_daily_log(response) {
 
         title_el.textContent = value.title;
         weight_el.textContent = value.weight + 'kg';
-        if(value.body_fat != undefined) {
+        if(value.body_fat != "") {
             body_fat_el.textContent = value.body_fat + '%';
         }
         memo_el.textContent = value.memo;
@@ -82,7 +82,7 @@ function show_daily_log(response) {
 
         article_el.appendChild(title_el);
         article_el.appendChild(weight_el);
-        if(value.body_fat != undefined) {
+        if(value.body_fat != "") {
             article_el.appendChild(body_fat_el);
         }
         article_el.appendChild(memo_el);
