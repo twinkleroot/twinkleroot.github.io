@@ -74,13 +74,17 @@ function show_daily_log(response) {
 
         title_el.textContent = value.title;
         weight_el.textContent = value.weight + 'kg';
-        weight_el.textContent = value.body_fat + '%';
+        if(value.body_fat != undefined) {
+            body_fat_el.textContent = value.body_fat + '%';
+        }
         memo_el.textContent = value.memo;
         memo_el.classList.add('no-display');
 
         article_el.appendChild(title_el);
         article_el.appendChild(weight_el);
-        article_el.appendChild(body_fat_el);
+        if(value.body_fat != undefined) {
+            article_el.appendChild(body_fat_el);
+        }
         article_el.appendChild(memo_el);
         article_el.classList.add('daily-log');
 
