@@ -68,16 +68,19 @@ function show_daily_log(response) {
         const article_el = document.createElement('article');
         const title_el = document.createElement('h3');
         const weight_el = document.createElement('p');
+        const body_fat_el = document.createElement('p');
         const memo_el = document.createElement('p');
         const day_el = document.querySelector('.day-'+key);
 
         title_el.textContent = value.title;
         weight_el.textContent = value.weight + 'kg';
+        weight_el.textContent = value.body_fat + '%';
         memo_el.textContent = value.memo;
         memo_el.classList.add('no-display');
 
         article_el.appendChild(title_el);
         article_el.appendChild(weight_el);
+        article_el.appendChild(body_fat_el);
         article_el.appendChild(memo_el);
         article_el.classList.add('daily-log');
 
