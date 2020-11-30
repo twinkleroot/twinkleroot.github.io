@@ -20,3 +20,14 @@ function get_day_diff(_date1, _date2) {
  
     return diff;
 }
+
+function get_calendar_row(base_day) {
+    let row = 4;
+    if(base_day - 28 > 0) {
+        row = 6;
+    } else if(base_day - 28 <= 0) {
+        row = 5;
+    }
+
+    return row;
+}

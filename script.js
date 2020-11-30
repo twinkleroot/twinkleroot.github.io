@@ -1,11 +1,12 @@
 (function() {
-    show_calendar(new Date());
+    paint_calendar(new Date());
 
     load_data_json();
     // 이전, 이후 달력 버튼 만들어서 저번달 데이터 로드
+    // 다이어트 시작할떄의 기록도 표시
 }) ();
 
-function show_calendar(date) {
+function paint_calendar(date) {
     const section = document.querySelector('section');
     const dom_firstday = (new Date(date.getFullYear(), date.getMonth(), 1)).getDay();
     const last_date = (new Date(date.getFullYear(), date.getMonth()+1, 0)).getDate();
@@ -14,6 +15,7 @@ function show_calendar(date) {
     
     const base_day = last_date-(7-dom_firstday);    // 이 달의 일수 - (일주일 - 첫번째날의 요일값)이 기준일.
     const last_index = get_calendar_row(base_day) * 7;
+    const week_day = ['일', '월', '화', '수', '목', '금', '토'];
 
     for(let index=0; index<last_index; index++) {
         const div = document.createElement('div');
@@ -21,9 +23,13 @@ function show_calendar(date) {
         const current_row = parseInt(index / 7);
         const current_column = index % 7;
         
-        if(index > dom_firstday && index < last_date+dom_firstday) {
-            const date_text = document.createElement('span');
-            date_text.textContent = real_date;
+        if(index >= dom_firstday && index < last_date + dom_firstday) {
+            const date_text = document.createElement('strong');
+            date_text.textContent = real_date + "(" + week_day[current_column] + ")";
+            date_text.classList.add('day-style');
+            if(current_column === 0) {
+                date_text.classList.add('red');
+            }
             div.appendChild(date_text);
             div.setAttribute('data-row', current_row);
             div.setAttribute('data-column', current_column);
@@ -46,17 +52,6 @@ function load_data_json() {
     request.onload = function() {
         return show_daily_log(request.response);
     }
-}
-
-function get_calendar_row(base_day) {
-    let row = 4;
-    if(base_day - 28 > 0) {
-        row = 6;
-    } else if(base_day - 28 <= 0) {
-        row = 5;
-    }
-
-    return row;
 }
 
 function show_daily_log(response) {
