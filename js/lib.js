@@ -5,7 +5,7 @@ function get_json_path() {
     if(month < 10) {
         month = '0' + month;
     }
-    return year + month + '.json';
+    return 'data/' + year + month + '.json';
 }
 
 function get_day_diff(_date1, _date2) {
