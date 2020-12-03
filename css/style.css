@@ -23,6 +23,7 @@ header {
 .calendar-day {
     position: relative;
     flex : 1 auto;
+    padding: 3px;
     width: 14%;
     height: 120px;
     border: 1px solid black;
