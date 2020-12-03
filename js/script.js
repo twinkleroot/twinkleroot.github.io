@@ -43,7 +43,7 @@ function paint_calendar(date) {
 
 function load_data_json() {
     let request = new XMLHttpRequest();
-    const path = get_json_path();
+    const path = get_json_path(new Date());
     request.open("GET", path);
     request.responseType = 'json';
     request.send();
