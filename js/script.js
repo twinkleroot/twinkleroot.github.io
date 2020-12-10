@@ -1,13 +1,13 @@
 (function() {
-    paint_calendar(new Date());
+    show_diet_calendar(new Date());
 
     load_data_json();
     // 이전, 이후 달력 버튼 만들어서 저번달 데이터 로드
     // 이전, 이후 data 파일이 있을 때만 이전, 이후 표시되도록 하기
-    // 다이어트 시작할떄의 기록도 표시
+    // 다이어트 시작할 때의 기록도 표시
 }) ();
 
-function paint_calendar(date) {
+function show_diet_calendar(date) {
     const section = document.querySelector('section');
     const dom_firstday = (new Date(date.getFullYear(), date.getMonth(), 1)).getDay();
     const last_date = (new Date(date.getFullYear(), date.getMonth()+1, 0)).getDate();
@@ -57,8 +57,10 @@ function load_data_json() {
 
 function show_daily_log(response) {
     const header_count_area = document.querySelector('header>h1');
+    const footer_first_log_area = document.querySelector('footer>h5');
     const start_date = '2020-11-09';
     header_count_area.textContent = '식단변경 ' + get_day_diff(start_date, new Date()) + '일차';
+    footer_first_log_area.textContent = '2020년 11월 9일 시작, 89.70kg, 체지방 33~34%'
 
     for (const [key, value] of Object.entries(response[0])) {
         const article_el = document.createElement('article');
