@@ -62,8 +62,11 @@ function show_daily_log(response) {
     const header_count_area = document.querySelector('header>h1');
     const footer_first_log_area = document.querySelector('footer>h5');
     const start_date = '2020-11-09';
+    const start_weight = 89.70;
+    const last_weight = start_weight;
+    const diff_weight = start_weight - last_weight;
     header_count_area.textContent = '식단변경 ' + get_day_diff(start_date, new Date()) + '일차';
-    footer_first_log_area.textContent = '2020년 11월 9일 시작, 89.70kg, 체지방 33~34%'
+    footer_first_log_area.textContent = '2020년 11월 9일 시작, ' + start_weight + 'kg, 체지방 33~34%, 지금까지 감량한 무게 : ' + diff_weight + 'kg';
 
     for (const [key, value] of Object.entries(response[0])) {
         const article_el = document.createElement('article');
