@@ -1,6 +1,6 @@
 function get_json_path(dateObj) {
     const year = dateObj.getFullYear().toString().substring(2,4);
-    const month = dateObj.getMonth() + 1;
+    let month = dateObj.getMonth() + 1;
     if(month < 10) {
         month = '0' + month;
     }
