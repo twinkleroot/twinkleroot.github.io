@@ -67,7 +67,8 @@ function show_daily_log(response) {
     const start_date = '2020-11-09';
     const start_weight = 89.70;
     const last_weight = start_weight;
-    const diff_weight = start_weight - last_weight;
+    // const diff_weight = start_weight - last_weight;
+    const diff_weight = 15;
     header_count_area.textContent = '식단변경 ' + get_day_diff(start_date, new Date()) + '일차';
     footer_first_log_area.textContent = '2020년 11월 9일 시작, ' + start_weight + 'kg, 체지방 34%, 지금까지 감량한 무게 : ' + diff_weight + 'kg';
 
