@@ -11,6 +11,22 @@
         - 몽고db 도입 고려
     3. memo는 클릭했을때 레이어 팝업으로 뜨도록 하기. 아무대나 누르면 레이어 팝업은 닫히도록 하기.
     */
+    const ShowAnotherMonth = {
+        thisMonth : 3,
+        setEvent : function() {
+            const prevMonthButton = document.querySelector('#prev-month-button')
+            const nextMonthButton = document.querySelector('#next-month-button')
+            prevMonthButton.onclick = this.prevMonthHandler.bind(ShowAnotherMonth, prevMonthButton)
+            nextMonthButton.onclick = this.nextMonthHandler.bind(ShowAnotherMonth, nextMonthButton)
+        },
+        prevMonthHandler : function(node, event) {
+            console.log(node.textContent)
+        },
+        nextMonthHandler : function(node, event) {
+            console.log(node.textContent)
+        }
+    };
+    ShowAnotherMonth.setEvent();
 }) ();
 
 function show_diet_calendar(date) {
